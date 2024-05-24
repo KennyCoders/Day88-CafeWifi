@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>All Cafes</title>
+    <link rel="stylesheet" href="static/assets/css/main.css">
+    <style>
+        .checkmark {
+            color: green;
+        }
+        .cross {
+            color: red;
+        }
+    </style>
+</head>
+<body class="is-preload homepage">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <div id="header-wrapper">
+            <header id="header" class="container">
+                <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="index.html">Co-Fee</a></h1>
+                </div>
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Welcome</a></li>
+                        <li class="current"><a href="/all">Get All Cafes</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!-- Features -->
+        <div id="features-wrapper">
+            <div class="container">
+                <div class="row">
+                    {% for cafe in cafes %}
+                    <div class="col-4 col-12-medium">
+                        <!-- Box -->
+                        <section class="box feature">
+                            <a href="#" class="image featured"><img class="random-image" alt="" /></a>
+                            <div class="inner">
+                                <header>
+                                    <h2>{{ cafe.name }}</h2>
+                                    <p>{{ cafe.location }}</p>
+                                </header>
+                                <p>WiFi: <span class="{{ 'checkmark' if cafe.has_wifi else 'cross' }}">
+                                    {{ '✅' if cafe.has_wifi else '❌' }}
+                                </span></p>
+                                <p>Sockets: <span class="{{ 'checkmark' if cafe.has_sockets else 'cross' }}">
+                                    {{ '✅' if cafe.has_sockets else '❌' }}
+                                </span></p>
+                                 <p>Toilets: <span class="{{ 'checkmark' if cafe.has_sockets else 'cross' }}">
+                                    {{ '✅' if cafe.has_toilet else  '❌' }}
+                                </span></p>
+                                 <p>Calls: <span class="{{ 'checkmark' if cafe.has_sockets else 'cross' }}">
+                                    {{ '✅' if cafe.can_take_calls else '❌' }}
+                                </span></p>
+                               <p>Seats: {{ cafe.seats }}</p>
+                            </div>
+                        </section>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

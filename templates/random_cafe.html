@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Random Cafe</title>
+    <link rel="stylesheet" href="static/assets/css/main.css">
+    <style>
+        .checkmark {
+            color: green;
+        }
+        .cross {
+            color: red;
+        }
+    </style>
+</head>
+<body class="is-preload homepage">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <div id="header-wrapper">
+            <header id="header" class="container">
+                <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="index.html">Co-Fee</a></h1>
+                </div>
+            </header>
+        </div>
+        <!-- Features -->
+        <div id="features-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <section class="box feature">
+                            <div class="inner">
+                                <header>
+                                    <h2>{{ cafe.name }}</h2>
+                                    <p>{{ cafe.location }}</p>
+                                </header>
+                                <a href="#" class="image featured"><img src="{{ cafe.img_url }}" alt="Cafe Image" /></a>
+                                <p>WiFi: <span class="{{ 'checkmark' if cafe.has_wifi else 'cross' }}">{{ '✅' if cafe.has_wifi else '❌' }}</span></p>
+                                <p>Sockets: <span class="{{ 'checkmark' if cafe.has_sockets else 'cross' }}">{{ '✅' if cafe.has_sockets else '❌' }}</span></p>
+                                <p>Toilets: <span class="{{ 'checkmark' if cafe.has_toilet else 'cross' }}">{{ '✅' if cafe.has_toilet else '❌' }}</span></p>
+                                <p>Calls: <span class="{{ 'checkmark' if cafe.can_take_calls else 'cross' }}">{{ '✅' if cafe.can_take_calls else '❌' }}</span></p>
+                                <p>Seats: {{ cafe.seats }}</p>
+                                <p>Coffee Price: {{ cafe.coffee_price }}</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

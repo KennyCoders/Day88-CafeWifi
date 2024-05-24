@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Search Cafes</title>
+    <link rel="stylesheet" href="static/assets/css/main.css">
+</head>
+<body class="is-preload homepage">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <div id="header-wrapper">
+            <header id="header" class="container">
+                <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="index.html">Co-Fee</a></h1>
+                </div>
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Welcome</a></li>
+                        <li><a href="/all">Get All Cafes</a></li>
+                        <li class="current"><a href="/search">Search</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!-- Search Form -->
+        <div id="search-wrapper">
+            <div id="search" class="box container">
+                <form action="/search" method="GET">
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="checkbox" id="wifi" name="wifi">
+                            <label for="wifi">WiFi</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="checkbox" id="sockets" name="sockets">
+                            <label for="sockets">Sockets</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="checkbox" id="toilets" name="toilets">
+                            <label for="toilets">Toilets</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="checkbox" id="calls" name="calls">
+                            <label for="calls">Calls</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="submit" value="Search">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Search Results -->
+        <div id="results-wrapper">
+            <div id="results" class="box container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Search Results</h2>
+                        <ul>
+                            {% for cafe in cafes %}
+                            <li>{{ cafe.name }} - {{ cafe.location }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
